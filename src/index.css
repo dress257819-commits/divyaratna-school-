@@ -151,8 +151,8 @@ body {
 
 .hero-image-overlay {
   background:
-    linear-gradient(90deg, rgba(9, 24, 45, 0.68) 0%, rgba(9, 24, 45, 0.55) 36%, rgba(9, 24, 45, 0.4) 100%),
-    linear-gradient(180deg, rgba(9, 24, 45, 0.18) 0%, rgba(9, 24, 45, 0.04) 42%, rgba(9, 24, 45, 0.38) 100%);
+    linear-gradient(90deg, rgba(9, 24, 45, 0.56) 0%, rgba(9, 24, 45, 0.44) 36%, rgba(9, 24, 45, 0.3) 100%),
+    linear-gradient(180deg, rgba(9, 24, 45, 0.12) 0%, rgba(9, 24, 45, 0.02) 42%, rgba(9, 24, 45, 0.28) 100%);
 }
 
 .premium-hover {

@@ -155,16 +155,16 @@ const HeroSection: React.FC = () => {
                     <Reveal as="p" variant="up" delayMs={120} durationMs={650} className="site-hero-subtitle mx-auto mb-6 max-w-3xl text-[clamp(1rem,1.65vw,1.25rem)] font-medium leading-relaxed text-white/95 sm:mb-10">
                       {slide.subtitle}
                     </Reveal>
-                    <Reveal as="div" variant="up" delayMs={220} durationMs={650} className="flex flex-wrap justify-center gap-3 sm:hidden">
+                    <Reveal as="div" variant="up" delayMs={220} durationMs={650} className="mx-auto flex w-full max-w-sm flex-wrap justify-center gap-3 sm:gap-4">
                       <Link
                         to="/about"
-                        className="inline-flex min-h-11 min-w-[132px] flex-1 items-center justify-center rounded-full bg-white px-4 py-3 text-xs font-semibold tracking-wide text-slate-900 shadow-lg shadow-slate-950/25 transition duration-200 hover:-translate-y-0.5 hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
+                        className="inline-flex min-h-11 min-w-[132px] flex-1 items-center justify-center rounded-full bg-white px-4 py-3 text-xs font-semibold tracking-wide text-slate-900 shadow-lg shadow-slate-950/25 transition duration-200 hover:-translate-y-0.5 hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 sm:text-sm"
                       >
                         Explore Our School
                       </Link>
                       <Link
                         to="/admission"
-                        className="inline-flex min-h-11 min-w-[132px] flex-1 items-center justify-center rounded-full border border-white/70 bg-white/10 px-4 py-3 text-xs font-semibold tracking-wide text-white shadow-lg shadow-slate-950/20 backdrop-blur-md transition duration-200 hover:-translate-y-0.5 hover:bg-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
+                        className="inline-flex min-h-11 min-w-[132px] flex-1 items-center justify-center rounded-full border border-white/70 bg-white/10 px-4 py-3 text-xs font-semibold tracking-wide text-white shadow-lg shadow-slate-950/20 backdrop-blur-md transition duration-200 hover:-translate-y-0.5 hover:bg-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 sm:text-sm"
                       >
                         Admissions
                       </Link>
