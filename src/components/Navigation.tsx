@@ -94,6 +94,11 @@ const Navigation: React.FC = () => {
       ]
     },
     {
+      title: 'Contact',
+      path: '/contact',
+      items: []
+    },
+    {
       title: 'Log In',
       path: '/login',
       items: [
@@ -115,7 +120,6 @@ const Navigation: React.FC = () => {
             <Link to="/calendar" className="link-animate" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => e.currentTarget.style.color = 'var(--color-primary-800)'} onMouseLeave={(e) => e.currentTarget.style.color = 'var(--color-text-secondary)'}>Calendar</Link>
             <Link to="/news-media" className="link-animate" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => e.currentTarget.style.color = 'var(--color-primary-800)'} onMouseLeave={(e) => e.currentTarget.style.color = 'var(--color-text-secondary)'}>News & Media</Link>
             <Link to="/work-at-dress" className="link-animate" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => e.currentTarget.style.color = 'var(--color-primary-800)'} onMouseLeave={(e) => e.currentTarget.style.color = 'var(--color-text-secondary)'}>Work at DRESS</Link>
-            <Link to="/contact" className="link-animate" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => e.currentTarget.style.color = 'var(--color-primary-800)'} onMouseLeave={(e) => e.currentTarget.style.color = 'var(--color-text-secondary)'}>Contact Us</Link>
           </div>
         </div>
 
@@ -144,7 +148,7 @@ const Navigation: React.FC = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-8">
+          <div className="hidden xl:flex items-center space-x-4 2xl:space-x-8">
             {navigationItems.map((item) => (
               <div 
                 key={item.title}
@@ -245,7 +249,7 @@ const Navigation: React.FC = () => {
           </div>
 
           {/* Mobile menu button and small badge */}
-          <div className="lg:hidden flex items-center gap-3">
+          <div className="xl:hidden flex items-center gap-3">
             {user && (
               <>
                 <div className="w-8 h-8 rounded-[4px] flex items-center justify-center text-xs font-semibold" style={{ 
@@ -283,7 +287,7 @@ const Navigation: React.FC = () => {
 
       {/* Mobile Navigation */}
       <div 
-        className="lg:hidden overflow-hidden transition-all duration-200 ease-out"
+        className="xl:hidden overflow-hidden transition-all duration-200 ease-out"
         style={{
           maxHeight: isOpen ? '1000px' : '0px',
           opacity: isOpen ? 1 : 0,
