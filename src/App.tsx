@@ -67,7 +67,7 @@ import BackToTopButton from './components/BackToTopButton';
 
 function HomePage() {
   return (
-    <div className="homepage-theme">
+    <>
       <HeroSection />
       <NoticeBoardSection />
       <BirthdayCelebrationsSection />
@@ -79,7 +79,7 @@ function HomePage() {
       <AchievementsActivitiesSection />
       <HomeCtaSection />
       <NewsSection />
-    </div>
+    </>
   );
 }
 

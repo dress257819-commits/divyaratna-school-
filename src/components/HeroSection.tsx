@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
 import { useSiteSettings } from '../theme/siteSettings';
+import Reveal from './Reveal';
 
 type HeroSlideRow = {
   id: string;
@@ -126,58 +126,37 @@ const HeroSection: React.FC = () => {
   };
 
   return (
-    <section
-      aria-label="Welcome to Divya Ratna English Secondary School"
-      className="hero-slider relative h-[calc(100svh-76px)] min-h-[560px] max-h-[840px] overflow-hidden md:h-[calc(100vh-112px)]"
-    >
+    <div className="relative h-[calc(100svh-72px)] md:h-[calc(100vh-96px)] lg:h-[calc(100vh-112px)] overflow-hidden">
       {slides.map((slide, index) => (
         <div
           key={index}
-          aria-hidden={index !== currentSlide}
-          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+          className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
             index === currentSlide ? 'opacity-100' : 'opacity-0'
           }`}
         >
           <div className="h-full relative">
             <img
               src={slide.image}
-              alt="Divya Ratna English Secondary School campus"
-              className={`hero-image absolute inset-0 w-full h-full object-cover ${
-                index === currentSlide ? 'hero-image-active' : ''
-              }`}
+              alt=""
+              className="absolute inset-0 w-full h-full object-cover"
               loading={index === 0 ? 'eager' : 'lazy'}
               decoding="async"
               fetchPriority={index === 0 ? 'high' : 'auto'}
             />
-            <div className="hero-overlay absolute inset-0"></div>
-            <div className="relative z-10 h-full flex items-center text-white">
-              <div className="hero-copy w-full max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16">
+            <div className="absolute inset-0 bg-black/20"></div>
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,transparent_40%,rgba(0,0,0,0.18)_70%,rgba(0,0,0,0.28)_100%)]"></div>
+            <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.18)_0%,rgba(0,0,0,0.08)_22%,rgba(0,0,0,0.02)_50%,rgba(0,0,0,0.08)_78%,rgba(0,0,0,0.18)_100%)]"></div>
+            <div className="relative z-10 h-full flex items-center justify-center text-center text-white">
+              <div className="max-w-5xl mx-auto px-6">
                 {index === currentSlide && (
-                  <div className="hero-copy-content max-w-3xl text-center lg:text-left">
-                    <p className="mb-5 text-xs font-semibold uppercase tracking-[0.2em] text-blue-100 sm:text-sm">
-                      Divya Ratna English Secondary School
-                    </p>
-                    <h1 className="site-hero-heading mb-5 text-4xl font-semibold leading-[1.08] tracking-[-0.035em] sm:text-5xl lg:text-6xl xl:text-7xl">
+                  <>
+                    <Reveal as="h1" variant="up" durationMs={650} className="site-hero-heading text-3xl md:text-5xl lg:text-[4.5rem] font-medium mb-6 leading-[0.9] tracking-[-0.035em]">
                       {slide.title}
-                    </h1>
-                    <p className="mx-auto mb-8 max-w-2xl text-base font-light leading-7 text-white/90 sm:text-lg sm:leading-8 lg:mx-0">
+                    </Reveal>
+                    <Reveal as="p" variant="up" delayMs={120} durationMs={650} className="text-lg md:text-xl lg:text-2xl mb-12 max-w-4xl mx-auto font-light leading-relaxed text-white/95">
                       {slide.subtitle}
-                    </p>
-                    <div className="flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center lg:justify-start">
-                      <Link
-                        to="/about"
-                        className="hero-button hero-button-primary inline-flex min-h-12 items-center justify-center rounded-full px-7 text-sm font-semibold"
-                      >
-                        Explore Our School
-                      </Link>
-                      <Link
-                        to="/admission"
-                        className="hero-button hero-button-secondary inline-flex min-h-12 items-center justify-center rounded-full px-7 text-sm font-semibold"
-                      >
-                        Admissions
-                      </Link>
-                    </div>
-                  </div>
+                    </Reveal>
+                  </>
                 )}
               </div>
             </div>
@@ -188,39 +167,32 @@ const HeroSection: React.FC = () => {
       {/* Navigation Arrows */}
       <button
         onClick={prevSlide}
-        type="button"
-        aria-label="Previous slide"
-        className="hero-arrow absolute left-4 top-1/2 z-20 -translate-y-1/2 rounded-full p-2.5 text-white backdrop-blur-md sm:left-6 sm:p-3 lg:left-10"
+        className="absolute left-4 md:left-8 bottom-24 md:bottom-auto top-auto md:top-1/2 md:-translate-y-1/2 bg-black/20 hover:bg-black/30 text-white p-2.5 md:p-3 rounded-full transition-all z-20 backdrop-blur-sm hover-float"
       >
         <ChevronLeft className="h-6 w-6" />
       </button>
       <button
         onClick={nextSlide}
-        type="button"
-        aria-label="Next slide"
-        className="hero-arrow absolute right-4 top-1/2 z-20 -translate-y-1/2 rounded-full p-2.5 text-white backdrop-blur-md sm:right-6 sm:p-3 lg:right-10"
+        className="absolute right-4 md:right-8 bottom-24 md:bottom-auto top-auto md:top-1/2 md:-translate-y-1/2 bg-black/20 hover:bg-black/30 text-white p-2.5 md:p-3 rounded-full transition-all z-20 backdrop-blur-sm hover-float"
       >
         <ChevronRight className="h-6 w-6" />
       </button>
 
       {/* Slide Indicators */}
-      <div className="absolute bottom-6 left-1/2 z-20 -translate-x-1/2 md:bottom-8">
-        <div className="hero-indicators flex items-center gap-2 rounded-full px-4 py-3 backdrop-blur-md">
+      <div className="absolute bottom-6 md:bottom-12 left-1/2 transform -translate-x-1/2 z-20">
+        <div className="flex space-x-3 px-4 py-2 rounded-full bg-black/20 backdrop-blur-sm">
         {slides.map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrentSlide(index)}
-            type="button"
-            aria-label={`Go to slide ${index + 1}`}
-            aria-current={index === currentSlide ? 'true' : undefined}
-            className={`hero-indicator h-2.5 rounded-full transition-all duration-300 ${
-              index === currentSlide ? 'hero-indicator-active w-8' : 'w-2.5'
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              index === currentSlide ? 'bg-white scale-125' : 'bg-white bg-opacity-50 hover:bg-opacity-75'
             }`}
           />
         ))}
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

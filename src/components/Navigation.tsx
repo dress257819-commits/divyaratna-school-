@@ -105,45 +105,46 @@ const Navigation: React.FC = () => {
   ];
 
   return (
-    <nav className="site-navigation sticky top-0 z-30">
-      <div className="site-navigation-inner mx-auto max-w-[1600px]">
+    <nav className="bg-white shadow-sm sticky top-0 z-30 animate-slide-in-down">
+      <div className="max-w-7xl mx-auto">
         {/* Top utility bar */}
-        <div className="site-utility-bar hidden items-center justify-end px-6 py-2.5 text-xs lg:flex xl:px-10">
-          <div className="flex items-center gap-6">
-            <Link to="/admission" className="site-utility-link">Admission</Link>
-            <Link to="/calendar" className="site-utility-link">Calendar</Link>
-            <Link to="/news-media" className="site-utility-link">News &amp; Media</Link>
-            <Link to="/work-at-dress" className="site-utility-link">Work at DRESS</Link>
-            <Link to="/contact" className="site-utility-link">Contact Us</Link>
+        <div className="hidden lg:flex justify-end items-center px-6 py-2 text-xs border-b"
+          style={{ color: 'var(--color-text-secondary)', borderColor: 'var(--color-border-default)' }}>
+          <div className="flex items-center space-x-6">
+            <Link to="/admission" className="link-animate" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => e.currentTarget.style.color = 'var(--color-primary-800)'} onMouseLeave={(e) => e.currentTarget.style.color = 'var(--color-text-secondary)'}>Admission</Link>
+            <Link to="/calendar" className="link-animate" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => e.currentTarget.style.color = 'var(--color-primary-800)'} onMouseLeave={(e) => e.currentTarget.style.color = 'var(--color-text-secondary)'}>Calendar</Link>
+            <Link to="/news-media" className="link-animate" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => e.currentTarget.style.color = 'var(--color-primary-800)'} onMouseLeave={(e) => e.currentTarget.style.color = 'var(--color-text-secondary)'}>News & Media</Link>
+            <Link to="/work-at-dress" className="link-animate" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => e.currentTarget.style.color = 'var(--color-primary-800)'} onMouseLeave={(e) => e.currentTarget.style.color = 'var(--color-text-secondary)'}>Work at DRESS</Link>
+            <Link to="/contact" className="link-animate" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => e.currentTarget.style.color = 'var(--color-primary-800)'} onMouseLeave={(e) => e.currentTarget.style.color = 'var(--color-text-secondary)'}>Contact Us</Link>
           </div>
         </div>
 
         {/* Main navigation */}
-        <div className="flex min-h-[76px] items-center justify-between gap-4 px-5 py-3 sm:px-7 lg:px-8 xl:px-10">
+        <div className="flex justify-between items-center px-6 py-4">
           {/* Logo */}
           <div className="flex items-center">
-            <Link to="/" className="site-brand flex shrink-0 items-center">
+            <Link to="/" className="flex items-center hover:opacity-80 transition-opacity">
               <>
-                <div className="site-school-mark mr-3 flex h-12 w-12 items-center justify-center overflow-hidden rounded-full">
+                <div className="w-12 h-12 bg-brand rounded-full flex items-center justify-center mr-3 overflow-hidden">
                   <img
                     src={getAssetUrl(
                       'logo',
                       'https://scontent.fbir7-1.fna.fbcdn.net/v/t39.30808-6/475770350_1106464641280060_8051712028946705424_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=Egcm6c2e9xoQ7kNvwG2YD3R&_nc_oc=AdlIieyPmL3LDpjYcPAwmKY1MyCR8-CtXtwGYQRFgmZKlp9dgP6cLEmoouxXoyX3g4OMvr4Umv947XLrfrVBbPjM&_nc_zt=23&_nc_ht=scontent.fbir7-1.fna&_nc_gid=wT2Id1Gs9KkWEHupOu8ryg&oh=00_AfmHI4rhlZ4rzGI_nZ7eNpCzN2nuwUB579-MFiM6Yk6VGQ&oe=695146C7'
                     )}
-                    className="h-full w-full object-cover"
-                    alt="Divya Ratna school crest"
+                    className="w-full h-full object-cover"
+                    alt="Logo"
                   />
                 </div>
                 <div>
-                  <div className="text-[17px] font-bold leading-tight tracking-[-0.025em] text-slate-900">Divya Ratna</div>
-                  <div className="mt-0.5 whitespace-nowrap text-[10px] font-semibold uppercase tracking-[0.12em] text-slate-500">English Secondary School</div>
+                  <div className="text-lg font-bold text-gray-900 tracking-tight">Divya Ratna</div>
+                  <div className="text-xs text-gray-500 -mt-1 font-medium">english secondary school</div>
                 </div>
               </>
             </Link>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden items-center gap-2 lg:flex xl:gap-4 2xl:gap-6">
+          <div className="hidden lg:flex items-center space-x-8">
             {navigationItems.map((item) => (
               <div 
                 key={item.title}
@@ -153,10 +154,13 @@ const Navigation: React.FC = () => {
               >
                 <Link 
                   to={item.path}
-                  aria-current={location.pathname === item.path ? 'page' : undefined}
-                  className={`site-nav-link flex items-center whitespace-nowrap text-[13px] font-semibold ${
-                    location.pathname === item.path ? 'site-nav-link-active' : ''
-                  }`}>
+                  style={{
+                    color: location.pathname === item.path ? 'var(--color-primary-800)' : 'var(--color-text-primary)',
+                    fontWeight: 600
+                  }}
+                  onMouseEnter={(e) => e.currentTarget.style.color = 'var(--color-primary-800)'}
+                  onMouseLeave={(e) => e.currentTarget.style.color = location.pathname === item.path ? 'var(--color-primary-800)' : 'var(--color-text-primary)'}
+                  className="flex items-center transition-colors text-sm">
                   {item.title}
                   {item.items.length > 0 && (
                     <ChevronDown 
@@ -186,7 +190,22 @@ const Navigation: React.FC = () => {
                       <Link
                         key={typeof subItem === 'object' ? subItem.path : String(subItem)}
                         to={typeof subItem === 'object' ? subItem.path : '#'}
-                        className="site-dropdown-link block px-4 py-2.5 text-xs"
+                        className="block px-4 py-2.5 text-xs transition-all duration-100 ease-out"
+                        style={{
+                          color: 'var(--color-text-primary)'
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.backgroundColor = 'var(--color-background-secondary)';
+                          e.currentTarget.style.color = 'var(--color-primary-800)';
+                          e.currentTarget.style.paddingLeft = '1.25rem';
+                          e.currentTarget.style.transform = 'translateX(2px)';
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.backgroundColor = 'transparent';
+                          e.currentTarget.style.color = 'var(--color-text-primary)';
+                          e.currentTarget.style.paddingLeft = '1rem';
+                          e.currentTarget.style.transform = 'translateX(0)';
+                        }}
                         onClick={() => setActiveDropdown(null)}
                       >
                         {typeof subItem === 'object' ? subItem.label : subItem}
@@ -199,7 +218,7 @@ const Navigation: React.FC = () => {
           </div>
 
           {/* User badge (right) */}
-          <div className="hidden items-center gap-3 lg:flex">
+          <div className="hidden lg:flex items-center gap-3">
             {user && (
               <div className="flex items-center gap-2">
                 <div className="w-9 h-9 rounded-[4px] flex items-center justify-center text-sm font-semibold" style={{ 
@@ -223,13 +242,10 @@ const Navigation: React.FC = () => {
                 </button>
               </div>
             )}
-            <Link to="/admission" className="site-admission-link inline-flex min-h-11 items-center justify-center rounded-full px-5 text-sm font-semibold">
-              Admissions
-            </Link>
           </div>
 
           {/* Mobile menu button and small badge */}
-          <div className="flex items-center gap-3 lg:hidden">
+          <div className="lg:hidden flex items-center gap-3">
             {user && (
               <>
                 <div className="w-8 h-8 rounded-[4px] flex items-center justify-center text-xs font-semibold" style={{ 
@@ -254,10 +270,10 @@ const Navigation: React.FC = () => {
             )}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              type="button"
-              aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
-              aria-expanded={isOpen}
-              className="site-mobile-toggle rounded-xl p-2"
+              className="transition-colors"
+              style={{ color: 'var(--color-text-primary)' }}
+              onMouseEnter={(e) => e.currentTarget.style.color = 'var(--color-primary-800)'}
+              onMouseLeave={(e) => e.currentTarget.style.color = 'var(--color-text-primary)'}
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -267,24 +283,26 @@ const Navigation: React.FC = () => {
 
       {/* Mobile Navigation */}
       <div 
-        className="site-mobile-navigation overflow-hidden transition-all duration-200 ease-out lg:hidden"
+        className="lg:hidden overflow-hidden transition-all duration-200 ease-out"
         style={{
-          maxHeight: isOpen ? 'calc(100svh - 76px)' : '0px',
+          maxHeight: isOpen ? '1000px' : '0px',
           opacity: isOpen ? 1 : 0,
-          borderTop: isOpen ? '1px solid #e2e8f0' : 'none',
+          borderTop: isOpen ? '1px solid var(--color-border-default)' : 'none',
           willChange: isOpen ? 'max-height, opacity' : 'auto'
         }}
       >
-        <div className="space-y-1 px-4 pb-5 pt-2 sm:px-7">
+        <div className="px-4 pt-2 pb-3 space-y-1" style={{ backgroundColor: 'var(--color-background-primary)' }}>
           {navigationItems.map((item) => (
-            <div key={item.title} className="site-mobile-nav-item space-y-1">
-              <div className="flex items-center justify-between border-b border-slate-100">
+            <div key={item.title} className="space-y-1">
+              <div className="flex items-center justify-between border-b" style={{ borderColor: 'var(--color-border-default)' }}>
                 <Link
                   to={item.path}
-                  aria-current={location.pathname === item.path ? 'page' : undefined}
-                  className={`site-mobile-nav-link flex-1 px-3 py-3 text-left text-sm font-medium ${
-                    location.pathname === item.path ? 'site-mobile-nav-link-active' : ''
-                  }`}
+                  style={{
+                    color: location.pathname === item.path ? 'var(--color-primary-800)' : 'var(--color-text-primary)'
+                  }}
+                  onMouseEnter={(e) => e.currentTarget.style.color = 'var(--color-primary-800)'}
+                  onMouseLeave={(e) => e.currentTarget.style.color = location.pathname === item.path ? 'var(--color-primary-800)' : 'var(--color-text-primary)'}
+                  className="flex-1 text-left px-3 py-3 font-medium text-sm transition-colors"
                   onClick={() => {
                     setActiveDropdown(null);
                     setIsOpen(false);
@@ -294,13 +312,12 @@ const Navigation: React.FC = () => {
                 </Link>
                 {item.items.length > 0 && (
                   <button
-                    type="button"
-                    aria-label={`${activeDropdown === item.title ? 'Collapse' : 'Expand'} ${item.title} links`}
                     onClick={() => {
                       setActiveDropdown(activeDropdown === item.title ? null : item.title);
                     }}
-                    className="site-mobile-expand px-3 py-3 transition-transform duration-150"
+                    className="px-3 py-3 transition-transform duration-150"
                     style={{ 
+                      color: 'var(--color-text-primary)',
                       transform: activeDropdown === item.title ? 'rotate(180deg)' : 'rotate(0deg)',
                       willChange: 'transform'
                     }}
@@ -310,12 +327,15 @@ const Navigation: React.FC = () => {
                 )}
               </div>
               {item.items.length > 0 && activeDropdown === item.title && (
-                <div className="site-mobile-subnav space-y-1 py-1 pl-6">
+                <div className="pl-6 space-y-1 transition-all duration-300" style={{ backgroundColor: 'var(--color-background-secondary)' }}>
                   {item.items.map((subItem) => (
                     <Link
                       key={typeof subItem === 'object' ? subItem.path : String(subItem)}
                       to={typeof subItem === 'object' ? subItem.path : '#'}
-                      className="site-mobile-subnav-link block px-3 py-2 text-xs"
+                      className="block px-3 py-2 text-xs transition-colors"
+                      style={{ color: 'var(--color-text-secondary)' }}
+                      onMouseEnter={(e) => e.currentTarget.style.color = 'var(--color-primary-800)'}
+                      onMouseLeave={(e) => e.currentTarget.style.color = 'var(--color-text-secondary)'}
                       onClick={() => {
                         setActiveDropdown(null);
                         setIsOpen(false);
@@ -328,13 +348,6 @@ const Navigation: React.FC = () => {
               )}
             </div>
           ))}
-          <Link
-            to="/admission"
-            className="site-mobile-admission mt-4 flex min-h-12 items-center justify-center rounded-full px-5 text-sm font-semibold"
-            onClick={() => setIsOpen(false)}
-          >
-            Admissions
-          </Link>
         </div>
       </div>
     </nav>
