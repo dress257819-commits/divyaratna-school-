@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
 import { useSiteSettings } from '../theme/siteSettings';
 import Reveal from './Reveal';
@@ -148,11 +149,25 @@ const HeroSection: React.FC = () => {
               <div className="max-w-5xl mx-auto px-6">
                 {index === currentSlide && (
                   <>
-                    <Reveal as="h1" variant="up" durationMs={650} className="site-hero-heading mx-auto mb-4 max-w-[18ch] text-[clamp(2rem,5.2vw,4.5rem)] font-semibold leading-[1.08] tracking-[-0.035em] sm:mb-6 md:max-w-[26ch]">
+                    <Reveal as="h1" variant="up" durationMs={650} className="site-hero-heading mx-auto mb-4 max-w-[16ch] text-[clamp(2rem,8vw,3rem)] font-semibold leading-[1.08] tracking-[-0.035em] sm:mb-6 sm:max-w-[18ch] sm:text-[clamp(2.5rem,5.2vw,4.5rem)] md:max-w-[26ch]">
                       {slide.title}
                     </Reveal>
-                    <Reveal as="p" variant="up" delayMs={120} durationMs={650} className="site-hero-subtitle mx-auto mb-8 max-w-3xl text-[clamp(1rem,1.65vw,1.25rem)] font-normal leading-relaxed text-white/95 sm:mb-10">
+                    <Reveal as="p" variant="up" delayMs={120} durationMs={650} className="site-hero-subtitle mx-auto mb-6 max-w-3xl text-[clamp(1rem,1.65vw,1.25rem)] font-medium leading-relaxed text-white/95 sm:mb-10">
                       {slide.subtitle}
+                    </Reveal>
+                    <Reveal as="div" variant="up" delayMs={220} durationMs={650} className="flex flex-wrap justify-center gap-3 sm:hidden">
+                      <Link
+                        to="/about"
+                        className="inline-flex min-h-11 min-w-[132px] flex-1 items-center justify-center rounded-full bg-white px-4 py-3 text-xs font-semibold tracking-wide text-slate-900 shadow-lg shadow-slate-950/25 transition duration-200 hover:-translate-y-0.5 hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
+                      >
+                        Explore Our School
+                      </Link>
+                      <Link
+                        to="/admission"
+                        className="inline-flex min-h-11 min-w-[132px] flex-1 items-center justify-center rounded-full border border-white/70 bg-white/10 px-4 py-3 text-xs font-semibold tracking-wide text-white shadow-lg shadow-slate-950/20 backdrop-blur-md transition duration-200 hover:-translate-y-0.5 hover:bg-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
+                      >
+                        Admissions
+                      </Link>
                     </Reveal>
                   </>
                 )}

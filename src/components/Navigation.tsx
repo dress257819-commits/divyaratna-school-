@@ -77,11 +77,6 @@ const Navigation: React.FC = () => {
       ]
     },
     {
-      title: 'Gallery',
-      path: '/gallery',
-      items: []
-    },
-    {
       title: 'Bulletins',
       path: '/bulletins',
       items: [
@@ -92,6 +87,11 @@ const Navigation: React.FC = () => {
         { label: 'Routine', path: '/bulletins/routine' },
         { label: 'Results', path: '/bulletins/results' }
       ]
+    },
+    {
+      title: 'Gallery',
+      path: '/gallery',
+      items: []
     },
     {
       title: 'Contact',
