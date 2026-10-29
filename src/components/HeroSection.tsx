@@ -149,7 +149,7 @@ const HeroSection: React.FC = () => {
               <div className="max-w-5xl mx-auto px-6">
                 {index === currentSlide && (
                   <>
-                    <Reveal as="h1" variant="up" durationMs={650} className="site-hero-heading mx-auto mb-4 max-w-[16ch] text-[clamp(2rem,8vw,3rem)] font-semibold leading-[1.08] tracking-[-0.035em] sm:mb-6 sm:max-w-[18ch] sm:text-[clamp(2.5rem,5.2vw,4.5rem)] md:max-w-[26ch]">
+                    <Reveal as="h1" variant="up" durationMs={650} className="site-hero-heading mx-auto mb-4 max-w-none text-[clamp(1.35rem,7.5vw,2.25rem)] font-semibold leading-[1.12] tracking-[-0.035em] sm:mb-6 sm:max-w-[18ch] sm:text-[clamp(2.5rem,5.2vw,4.5rem)] md:max-w-[26ch]">
                       {slide.title}
                     </Reveal>
                     <Reveal as="p" variant="up" delayMs={120} durationMs={650} className="site-hero-subtitle mx-auto mb-6 max-w-3xl text-[clamp(1rem,1.65vw,1.25rem)] font-medium leading-relaxed text-white/95 sm:mb-10">
