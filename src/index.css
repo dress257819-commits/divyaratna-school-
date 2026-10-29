@@ -121,9 +121,13 @@ body {
 @layer base {
   .site-hero-heading {
     font-family: 'Poppins', 'Segoe UI', sans-serif;
-    font-weight: 450;
-    letter-spacing: -0.03em;
-    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.14);
+    text-wrap: balance;
+    text-shadow: 0 2px 8px rgba(3, 14, 30, 0.48), 0 10px 28px rgba(3, 14, 30, 0.26);
+  }
+
+  .site-hero-subtitle {
+    text-wrap: pretty;
+    text-shadow: 0 1px 5px rgba(3, 14, 30, 0.65);
   }
 
   a,
@@ -143,6 +147,12 @@ body {
     transition-timing-function: cubic-bezier(0.2, 0.7, 0.2, 1);
     transition-duration: 180ms;
   }
+}
+
+.hero-image-overlay {
+  background:
+    linear-gradient(90deg, rgba(9, 24, 45, 0.68) 0%, rgba(9, 24, 45, 0.55) 36%, rgba(9, 24, 45, 0.4) 100%),
+    linear-gradient(180deg, rgba(9, 24, 45, 0.18) 0%, rgba(9, 24, 45, 0.04) 42%, rgba(9, 24, 45, 0.38) 100%);
 }
 
 .premium-hover {
