@@ -127,7 +127,17 @@ const Navigation: React.FC = () => {
         <div className="flex justify-between items-center px-6 py-4">
           {/* Logo */}
           <div className="flex items-center">
-            <Link to="/" className="flex items-center hover:opacity-80 transition-opacity">
+            <Link
+              to="/"
+              className="flex items-center hover:opacity-80 transition-opacity"
+              onClick={() => {
+                setIsOpen(false);
+                setActiveDropdown(null);
+                if (location.pathname === '/') {
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+              }}
+            >
               <>
                 <div className="w-12 h-12 bg-brand rounded-full flex items-center justify-center mr-3 overflow-hidden">
                   <img
